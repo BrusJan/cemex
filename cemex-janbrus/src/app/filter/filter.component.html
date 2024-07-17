@@ -1,0 +1,58 @@
+<div class="bg-white shadow-md p-4 flex gap-6">
+
+  <div class="flex flex-col">
+    <p>Filter</p>
+    <div class="flex">
+      <mat-checkbox class="example-margin" [(ngModel)]="filter.pending">Pending</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="filter.inProgress">In Progress</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="filter.completed">Completed</mat-checkbox>
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <div class="flex flex-col">
+    <p>Product Line</p>
+    <div class="flex">
+      <mat-form-field>
+        <mat-select [(ngModel)]="filter.productLine" name="productLine">
+          @for (productLine of productsLines; track productLine) {
+          <mat-option [value]="productLine">{{productLine}}</mat-option>
+          }
+        </mat-select></mat-form-field>
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <div class="flex flex-col">
+    <p>From</p>
+    <div class="flex">
+      <mat-form-field>
+        <input matInput [(ngModel)]="filter.dateFrom" [matDatepicker]="pickerFrom">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <div class="flex flex-col">
+    <p>To</p>
+    <div class="flex">
+      <mat-form-field>
+        <input matInput [(ngModel)]="filter.dateTo" [matDatepicker]="pickerTo">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+
+
+</div>
